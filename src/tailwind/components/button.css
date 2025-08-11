@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .btn {
+    @apply no-underline inline-flex gap-2 h-12 px-7 border cursor-pointer select-none;
+    @apply items-center justify-center border-transparent transition rounded-lg;
+    @apply border-base-200 bg-base-200 text-base-content outline-base-content;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-base-300 bg-base-300;
+      }
+    }
+  }
+  /* brand colors */
+  .btn-primary {
+    @apply bg-primary border-primary text-primary-content outline-primary;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-primary-focus bg-primary-focus;
+      }
+    }
+  }
+  .btn-secondary {
+    @apply bg-secondary border-secondary text-secondary-content outline-secondary;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-secondary-focus bg-secondary-focus;
+      }
+    }
+  }
+  .btn-secondary {
+    @apply bg-secondary border-secondary text-secondary-content outline-secondary;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-secondary-focus bg-secondary-focus;
+      }
+    }
+  }
+  .btn-accent {
+    @apply border-accent bg-accent text-accent-content outline-accent;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-accent-focus bg-accent-focus;
+      }
+    }
+  }
+  .btn-neutral {
+    @apply border-neutral bg-neutral text-base-content outline-neutral;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-neutral-focus bg-neutral-focus;
+      }
+    }
+  }
+
+  /* btn with state colors */
+  .btn-info {
+    @apply border-info bg-info text-info-content outline-info;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-info bg-info;
+      }
+    }
+  }
+  .btn-success {
+    @apply border-success bg-success text-base-100 outline-success;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-success bg-success;
+      }
+    }
+  }
+  .btn-warning {
+    @apply border-warning bg-warning text-base-100 outline-warning;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-warning bg-warning;
+      }
+    }
+  }
+  .btn-error {
+    @apply border-error bg-error text-base-100 outline-error;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-error bg-error;
+      }
+    }
+  }
+
+  /* btn variants */
+  .btn-ghost {
+    @apply border border-transparent bg-transparent text-current  outline-current;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-none bg-base-content/20;
+      }
+    }
+  }
+  .btn-link {
+    @apply border-transparent bg-transparent text-primary   outline-none h-auto px-1;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-transparent bg-transparent underline;
+      }
+    }
+  }
+  /* outline */
+  .btn-outline {
+    @apply border-current bg-transparent text-base-content;
+    @media (hover: hover) {
+      &:hover {
+        @apply border-base-content bg-base-content text-base-100;
+      }
+    }
+    &.btn-primary {
+      @apply text-primary;
+      @media (hover: hover) {
+        &:hover {
+          @apply border-primary-focus bg-primary-focus text-primary-content;
+        }
+      }
+    }
+    &.btn-secondary {
+      @apply text-secondary;
+      @media (hover: hover) {
+        &:hover {
+          @apply border-secondary-focus bg-secondary-focus text-secondary-content;
+        }
+      }
+    }
+    &.btn-accent {
+      @apply text-accent;
+      @media (hover: hover) {
+        &:hover {
+          @apply border-accent-focus bg-accent-focus text-accent-content;
+        }
+      }
+    }
+    &.btn-success {
+      @apply text-success;
+      @media (hover: hover) {
+        &:hover {
+          @apply border-success bg-success text-base-100;
+        }
+      }
+    }
+    &.btn-info {
+      @apply text-info;
+      @media (hover: hover) {
+        &:hover {
+          @apply border-info bg-info text-base-100;
+        }
+      }
+    }
+    &.btn-warning {
+      @apply text-warning;
+      @media (hover: hover) {
+        &:hover {
+          @apply border-warning bg-warning text-base-100;
+        }
+      }
+    }
+    &.btn-error {
+      @apply text-error;
+      @media (hover: hover) {
+        &:hover {
+          @apply border-error bg-error text-base-100;
+        }
+      }
+    }
+  }
+  /* disabled */
+  .btn[disabled],
+  &:disabled {
+    @apply pointer-events-none border-none bg-neutral/20 text-base-content/20;
+  }
+  @media (hover: hover) {
+    &[disabled]:hover,
+    &:disabled:hover {
+      @apply border-none bg-neutral/20 text-base-content/20;
+    }
+  }
+
+   /* size and shape */
+    .btn-xs {
+        @apply h-6 px-2;
+        font-size: 0.75rem;
+    }
+    .btn-sm {
+        @apply h-8 px-3;
+        font-size: 0.875rem;
+    }
+    .btn-md {
+        @apply h-12 px-4;
+        font-size: 0.875rem;
+    }
+    .btn-lg {
+        @apply h-16 px-6;
+        font-size: 1.125rem;
+    }
+    .btn-wide {
+        @apply w-64 flex-nowrap;
+    }
+    .btn-block {
+        @apply w-full;
+    }
+    .btn-square {
+        &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+        }
+        &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+        }
+        &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+        }
+        &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+        }
+    }
+}

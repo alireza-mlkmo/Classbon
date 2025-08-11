@@ -1,0 +1,60 @@
+.alert {
+    @apply p-4 rounded-lg  border border-base-200 text-base flex gap-2 items-center;
+    > svg {
+        @apply fill-info;
+    }
+    &-neutral {
+        @apply text-base border-white/25 bg-base-100;
+        > svg {
+            @apply fill-white;
+        }
+    }
+    &-ghost {
+        @apply text-base border-white/25 bg-base-100;
+        > svg {
+            @apply fill-white;
+        }
+    }
+    &-primary {
+        @apply text-primary border-primary/50 bg-base-100;
+        > svg {
+            @apply fill-primary;
+        }
+    }
+    &-secondary {
+        @apply text-secondary border-secondary/50 bg-base-100;
+        > svg {
+            @apply fill-secondary;
+        }
+    }
+    &-accent {
+        @apply text-accent border-accent/50 bg-base-100;
+        > svg {
+            @apply fill-accent;
+        }
+    }
+    &-info {
+        @apply text-info border-info/50 bg-base-100;
+        > svg {
+            @apply fill-info;
+        }
+    }
+    &-success {
+        @apply text-success border-success/50 bg-base-100;
+        > svg {
+            @apply fill-success;
+        }
+    }
+    &-warning {
+        @apply text-warning border-warning/50 bg-base-100;
+        > svg {
+            @apply fill-warning;
+        }
+    }
+    &-error {
+        @apply text-error border-error/50 bg-base-100;
+        > svg {
+            @apply fill-error;
+        }
+    }
+}

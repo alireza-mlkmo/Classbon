@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@import '../tailwind/components/components.css';
+
+html { 
+  font-family: var(--font-yekanbakh);
+}
+
+:lang(en) {
+  font-family: var(--font-figtree);
+}
+
+@utility container {
+  padding-inline: 1rem;
+  margin-inline: auto;
+    
+  @variant lg {
+    padding-inline: 3rem;
+  }
+  
+  @variant xl {
+    padding-inline: 4rem;
+  }
+}
+
+.bg-hero-pattern{
+  background-image: url('/images/tile.svg');
+}
+
+.gradient{
+  @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text
+}
+
+.animated-icon { 
+  & > * {
+    @apply transition-all
+  }
+  &:hover {
+    @apply text-white;
+    & > * {
+      @apply -translate-x-2
+    } 
+  }
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.8s ease forwards;
+  }
+:root {
+  /* Base Colors */
+  --current: currentColor;
+  --clb-c-transparent: transparent;
+  --clb-c-white: oklch(0.98 0 0 / 1);
+  --clb-c-primary: #077bea;
+  --clb-c-secondary: oklch(0.57 0.20 283.08 / 1);
+  --clb-c-accent: oklch(0.69 0.12 185.39 / 1);
+  --clb-c-neutral: oklch(0.31 0.02 254.14 / 1);
+  --clb-c-info: oklch(0.76 0.14 231.62 / 1);
+  --clb-c-success: oklch(0.77 0.15 163.10 / 1);
+  --clb-c-warning: #f9bc2c;
+  --clb-c-error: oklch(0.71 0.16 22.15 / 1);
+  --clb-c-gradient-first: oklch(0.83 0.18 160.17 / 1);
+  --clb-c-gradient-second: oklch(0.68 0.15 238.98 / 1);
+
+  --clb-c-primary-focus: color-mix(in oklch, var(--clb-c-primary), black 7%);
+  --clb-c-primary-content: color-mix(in oklch, var(--clb-c-primary), white 80%);
+  --clb-c-secondary-focus: color-mix(in oklch, var(--clb-c-secondary), black 7%);
+  --clb-c-secondary-content: color-mix(in oklch, var(--clb-c-secondary), white 80%);
+  --clb-c-accent-focus: color-mix(in oklch, var(--clb-c-accent), black 7%);
+  --clb-c-accent-content: color-mix(in oklch, var(--clb-c-accent), white 80%);
+  --clb-c-neutral-focus: color-mix(in oklch, var(--clb-c-neutral), black 3%);
+  --clb-c-neutral-content: color-mix(in oklch, var(--clb-c-neutral), white 80%);
+  --clb-c-info-content: color-mix(in oklch, var(--clb-c-info), black 80%);
+  --clb-c-success-content: color-mix(in oklch, var(--clb-c-success), black 80%);
+  --clb-c-warning-content: color-mix(in oklch, var(--clb-c-warning), black 80%);
+  --clb-c-error-content: color-mix(in oklch, var(--clb-c-error), black 80%);
+
+  /* Base Palette */
+  --clb-c-base-25: #353d47;
+  --clb-c-base-50: #2a323c;
+  --clb-c-base-75: #20272e;
+  --clb-c-base-100: #1d232a;
+  --clb-c-base-200: #191e24;
+  --clb-c-base-300: #15191e;
+  --clb-c-base-content: #A6ADBB;
+}
+
+@theme {
+  --color-current: var(--current);
+  --color-transparent: var(--clb-c-transparent);
+  --color-white: var(--clb-c-white);
+  --color-primary: var(--clb-c-primary);
+  --color-primary-content: var(--clb-c-primary-content);
+  --color-primary-focus: var(--clb-c-primary-focus);
+  --color-secondary: var(--clb-c-secondary);
+  --color-secondary-content: var(--clb-c-secondary-content);
+  --color-secondary-focus: var(--clb-c-secondary-focus);
+  --color-accent: var(--clb-c-accent);
+  --color-accent-content: var(--clb-c-accent-content);
+  --color-accent-focus: var(--clb-c-accent-focus);
+  --color-neutral: var(--clb-c-neutral);
+  --color-neutral-content: var(--clb-c-neutral-content);
+  --color-neutral-focus: var(--clb-c-neutral-focus);
+  --color-info: var(--clb-c-info);
+  --color-info-content: var(--clb-c-info-content);
+  --color-success: var(--clb-c-success);
+  --color-success-content: var(--clb-c-success-content);
+  --color-warning: var(--clb-c-warning);
+  --color-warning-content: var(--clb-c-warning-content);
+  --color-error: var(--clb-c-error);
+  --color-error-content: var(--clb-c-error-content);
+  --color-gradient-first: var(--clb-c-gradient-first);
+  --color-gradient-second: var(--clb-c-gradient-second);
+
+  /* Base Palette */
+  --color-base-25: var(--clb-c-base-25);
+  --color-base-50: var(--clb-c-base-50);
+  --color-base-75: var(--clb-c-base-75);
+  --color-base-100: var(--clb-c-base-100);
+  --color-base-200: var(--clb-c-base-200);
+  --color-base-300: var(--clb-c-base-300);
+  --color-base-content: var(--clb-c-base-content);
+
+}
+

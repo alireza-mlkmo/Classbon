@@ -25,7 +25,8 @@
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
     "react-intersection-observer": "^9.16.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "zustand": "^5.0.7"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.1",

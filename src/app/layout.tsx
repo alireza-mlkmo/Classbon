@@ -5,6 +5,7 @@ import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import QueryProvider from "@/providers/react-query-provider";
 import NextTopLoader from "nextjs-toploader";
+import { Notifications } from "./_components/notification/notifications";
 
 const figtree = Figtree({
   display: "swap",
@@ -58,6 +59,7 @@ export default function RootLayout({
     <html dir="rtl" className={`${yekanbakh.variable} ${figtree.variable}`}>
       <body className="min-h-screen grid grid-rows-[80px_1fr_auto] font-bold uppercase bg-base-100 text-base-content">
         <NextTopLoader showSpinner={false} color="#077bea" />
+        <Notifications/>
         <QueryProvider>
           <Header />
           <main>{children}</main>

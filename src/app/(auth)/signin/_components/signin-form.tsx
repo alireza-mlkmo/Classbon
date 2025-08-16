@@ -6,6 +6,7 @@ import { Signin } from "../_types/signin.types";
 import { TextInput } from "@/app/_components/form-input";
 import { useSignin } from "../_api/signin";
 import { useRouter } from "next/navigation";
+import { useNotificationStore } from "@/stores/notification.store";
 
 const SigninForm: React.FC = () => {
   const {
@@ -15,11 +16,18 @@ const SigninForm: React.FC = () => {
     getValues,
   } = useForm<Signin>();
 
+  const showNotification = useNotificationStore(state => state.showNotification);
+
   const router = useRouter();
 
   const signin = useSignin({
     onSuccess: () => {
       router.push(`/verify?mobile=${getValues("mobile")}`);
+      showNotification({
+        message: "کد تایید به شماره شما ارسال شد",
+        type: 'info',
+        duration: 5000,
+      })
     },
   });
 

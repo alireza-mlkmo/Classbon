@@ -1,0 +1,17 @@
+
+.notification {
+  @apply flex gap-3 relative items-center w-full max-w-xs p-4 m-0 text-base-content bg-base-25 rounded-lg shadow;
+}
+
+.show-notification {
+  animation: showNotification 0.2s ease forwards;
+}
+
+.notification-icon {
+  @apply inline-flex items-center justify-center shrink-0 w-8 h-8 rounded-md;
+}
+
+@keyframes showNotification {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}

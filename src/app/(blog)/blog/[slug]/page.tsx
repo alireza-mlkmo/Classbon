@@ -1,4 +1,4 @@
-export default async function BlogDetails({ params }: { params: { slug: string } }) {
+export default async function BlogDetails({ params } : any) {
     const { slug } = params;
     return (
         <div className="text-5xl flex justify-center items-center w-full">

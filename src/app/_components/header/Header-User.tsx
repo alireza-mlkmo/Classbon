@@ -7,7 +7,7 @@ import { signoutAction } from '@/actions/auth';
 const HeaderUserSection = () => {
 
     const {session , status , updateSession , clearSession} = useSessionStore();
-
+  
 
     async function handleSignout(){
       await signoutAction();

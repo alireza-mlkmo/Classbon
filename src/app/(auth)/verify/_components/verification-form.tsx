@@ -6,9 +6,9 @@ import Button from "@/app/_components/button/Button";
 import { Timer } from "@/app/_components/timer/Timer";
 import { TimerRef } from "@/app/_components/timer/timer.types";
 import Link from "next/link";
-import React, { useEffect, useRef, useState, useTransition } from "react";
+import React, { Suspense, useEffect, useRef, useState, useTransition } from "react";
 import { useNotificationStore } from "@/stores/notification.store";
-import { redirect, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { VerifyUserModel } from "../_types/verify-user.type";
 import { getToken, sendAuthCode } from "@/actions/auth";
@@ -24,6 +24,7 @@ const VarificationForm: React.FC = () => {
   const [showResendCode, setShowResendCode] = useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
 
+  const router = useRouter()
   const authCodeRef = useRef<AuthCodeRef>(null);
   const timerRef = useRef<TimerRef>(null);
 
@@ -81,7 +82,7 @@ useEffect(() => {
 
     (async () => {
       await updateSession();
-      redirect("/");
+      router.push('/student/courses')
     })();
   }
 }, [sendAuthCodeState, getTokenState, showNotification, updateSession]);
@@ -136,7 +137,12 @@ useEffect(() => {
         >
           ارسال مجدد کد تایید
         </Button>
-        <Button type="submit" variant="primary" isDisabled={!isValid} isLoading={isPending}>
+        <Button
+          type="submit"
+          variant="primary"
+          isDisabled={!isValid}
+          isLoading={isPending}
+        >
           تایید و ادامه
         </Button>
         <div className="flex items-start gap-1 justify-center mt-auto">

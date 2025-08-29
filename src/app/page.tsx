@@ -9,8 +9,8 @@ import { BlogPostCardList } from "./(blog)/_components/blog-post-card-list";
 import { IconArrowLeftFill } from "./_components/icons";
 import Button from "./_components/button/Button";
 import { API_URL } from "@/configs/global";
-import { TestimonialList } from "./_components/testimonial/Testimonial-list";
 import { testimonials } from "@/data/testimonial";
+import { TestimonialList } from "./_components/testimonial/testimonial-list";
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
   const res = await fetch(

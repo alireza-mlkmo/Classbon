@@ -29,12 +29,12 @@ async function getCurriculum(slug: string): Promise<CourseChapter[]> {
   return res.json()
 }
 
-export default async function CourseDetail(props: {
-  params: { slug: string };
-}) {
-  const params = await props.params;
-  const slug = params.slug;
-  const [course , courseCurriculumData] = await Promise.all([getCourse(slug), getCurriculum(slug)]); 
+export default async function CourseDetail({ params }: any) {
+    const { slug } = params;
+  const [course, courseCurriculumData] = await Promise.all([
+    getCourse(slug),
+    getCurriculum(slug),
+  ]);
 
   const faqs: AccordionType[] = course.frequentlyAskedQuestions.map((faq) => ({
     id: faq.id,
@@ -76,11 +76,11 @@ export default async function CourseDetail(props: {
             />
           ) : (
             <Image
-            src={`https://api.classbon.com/api/picture/${course.coverImageId}`}
-            alt={course.title}
-            width={550}
-            height={327}
-            className="w-full rounded-lg"
+              src={`https://api.classbon.com/api/picture/${course.coverImageId}`}
+              alt={course.title}
+              width={550}
+              height={327}
+              className="w-full rounded-lg"
             />
           )}
         </div>

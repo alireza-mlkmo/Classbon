@@ -17,39 +17,38 @@ const figtree = Figtree({
 const yekanbakh = localFont({
   src: [
     {
-      path: "../../public/fonts/yekanbakh/YekanBakh-Thin.woff2",
+      path: "@/assets/fonts/yekanbakh/YekanBakh-Thin.woff2",
       weight: "100",
       style: "normal",
     },
     {
-      path: "../../public/fonts/yekanbakh/YekanBakh-Light.woff2",
+      path: "@/assets/fonts/yekanbakh/YekanBakh-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../../public/fonts/yekanbakh/YekanBakh-Regular.woff2",
+      path: "@/assets/fonts/yekanbakh/YekanBakh-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/yekanbakh/YekanBakh-SemiBold.woff2",
+      path: "@/assets/fonts/yekanbakh/YekanBakh-SemiBold.woff2",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../../public/fonts/yekanbakh/YekanBakh-Bold.woff2",
+      path: "@/assets/fonts/yekanbakh/YekanBakh-Bold.woff2",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../../public/fonts/yekanbakh/YekanBakh-Black.woff2",
+      path: "@/assets/fonts/yekanbakh/YekanBakh-Black.woff2",
       weight: "900",
       style: "normal",
     },
   ],
   variable: "--font-yekanbakh",
 });
-
 export default function RootLayout({
   children,
 }: Readonly<{

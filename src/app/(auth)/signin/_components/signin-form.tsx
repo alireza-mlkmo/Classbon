@@ -4,9 +4,12 @@ import Button from "@/app/_components/button/Button";
 import { useForm } from "react-hook-form";
 import { Signin } from "../_types/signin.types";
 import { TextInput } from "@/app/_components/form-input";
-import { useSignin } from "../_api/signin";
 import { useRouter } from "next/navigation";
 import { useNotificationStore } from "@/stores/notification.store";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signinSchema } from "../_types/signin.schema";
+import { signinAction } from "@/actions/auth";
+import React, { useEffect, useTransition } from "react";
 
 const SigninForm: React.FC = () => {
   const {
@@ -14,25 +17,42 @@ const SigninForm: React.FC = () => {
     handleSubmit,
     formState: { errors },
     getValues,
-  } = useForm<Signin>();
+  } = useForm<Signin>({
+    resolver: zodResolver(signinSchema),
+  });
 
-  const showNotification = useNotificationStore(state => state.showNotification);
+  const [formState, action] = React.useActionState(signinAction, null);
+  const [isPending , startTransition] = useTransition();
+
+  const showNotification = useNotificationStore(
+    (state) => state.showNotification
+  );
 
   const router = useRouter();
 
-  const signin = useSignin({
-    onSuccess: () => {
+  useEffect(() => {
+    if (formState && !formState.isSuccess && formState.error) {
+      showNotification({
+        message: formState.error.detail!,
+        type: "error",
+      });
+    } else if (formState && formState.isSuccess) {
       router.push(`/verify?mobile=${getValues("mobile")}`);
       showNotification({
-        message: "کد تایید به شماره شما ارسال شد",
-        type: 'info',
+        message: `کد تایید شما ${formState.response}`,
+        type: "info",
         duration: 5000,
-      })
-    },
-  });
+      });
+    }
+  }, [showNotification, formState , getValues , router]);
 
   function onSubmit(data: Signin) {
-    signin.submit(data);
+    const formData = new FormData();
+    formData.append("mobile", data.mobile);
+    startTransition(async () => {
+      await action(formData);
+    })
+    
   }
 
   return (
@@ -46,20 +66,9 @@ const SigninForm: React.FC = () => {
         <TextInput<Signin>
           register={register}
           name={"mobile"}
-          rules={{
-            required: "شماره موبایل الزامی است",
-            maxLength: {
-              value: 11,
-              message: "شماره موبایل باید 11 رقم باشد",
-            },
-            minLength: {
-              value: 11,
-              message: "شماره موبایل باید 11 رقم باشد",
-            },
-          }}
           errors={errors}
         />
-        <Button type="submit" variant="primary" isLoading={signin.isPending}>
+        <Button type="submit" variant="primary" isLoading={isPending}>
           تایید و دریافت کد
         </Button>
       </form>

@@ -23,7 +23,7 @@ const notificationIcons: Record<NotificationType, ReactNode> = {
 };
 
 export const NotificationToast: React.FC<NotificationToastProps> = ({
-  notification: { id, message, type, duration = 5000 },
+  notification: { id, message, type, duration = 10000 },
 }) => {
   const dismissNotification = useNotificationStore(
     (state) => state.dismissNotification

@@ -1,22 +1,17 @@
 'use client'
 
-import { NavigationMenuItem } from "@/types/navigation-menu-item";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import React from "react";
+import { menuItems } from "@/data/menu-items";
 
-const menuItems: NavigationMenuItem[] = [
-  { title: "صفحه اصلی", href: "/" },
-  { title: "دوره‌های ری‌اکت و نکست", href: "/courses" },
-  { title: "مطالب و مقالات", href: "/blog" },
-];
 export const TopNavigation: React.FC = () => {
     const pathname = usePathname()
     return (
-        <ul className="flex gap-x-8 mr-12">
+        <ul className="hidden md:flex gap-x-8 mr-12">
             {menuItems.map(item => {
                 const isActive = pathname === item.href;
-                return <li key={item.title}><Link className={`hover:text-primary transition-colors pb-2 ${isActive && 'border-b-2 text-primary border-primary/30'}`} href={item.href}>{item.title}</Link></li>
+                return <li key={item.title}><Link className={`hover:text-primary text-base transition-colors pb-2 ${isActive && 'border-b-2 text-primary border-primary/30'}`} href={item.href}>{item.title}</Link></li>
             })}            
         </ul>
     )

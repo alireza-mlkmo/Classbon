@@ -98,6 +98,7 @@ const AuthCode = forwardRef<AuthCodeRef , AuthCodeProps>(({
   const inputs = [];
   for(let i = 0; i< length; i++){
     inputs.push(<input
+    key={i}
       type="text"
       maxLength={1}
       disabled={isDisabled}

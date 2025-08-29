@@ -5,7 +5,7 @@ export default function AuthTemplate({
   children: React.ReactNode;
 }) {
   return (
-    <div className="fade-in container pl-0 flex max-w-6xl bg-base-50/20 mt-16 rounded-lg border border-base-content/10 shadow-md ">
+    <div className="fade-in container pl-0 flex flex-col-reverse lg:flex-row max-w-6xl bg-base-50/20 mt-16 rounded-lg border border-base-content/10 shadow-md ">
       <section className="flex-1 p-10  flex flex-col">{children}</section>
       <section className="flex-1 p-10">
         <div className="bg-primary-focus rounded-lg shadow-lg text-white flex flex-col items-center justify-around text-center p-6">

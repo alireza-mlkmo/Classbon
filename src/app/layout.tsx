@@ -57,9 +57,12 @@ export default function RootLayout({
 }>) {
   return (
     <html dir="rtl" className={`${yekanbakh.variable} ${figtree.variable}`}>
-      <body className="min-h-screen grid grid-rows-[80px_1fr_auto] font-bold uppercase bg-base-100 text-base-content">
+      <body
+        cz-shortcut-listen="true"
+        className="min-h-screen grid grid-rows-[80px_1fr_auto] font-bold uppercase bg-base-100 text-base-content"
+      >
         <NextTopLoader showSpinner={false} color="#077bea" />
-        <Notifications/>
+        <Notifications />
         <QueryProvider>
           <Header />
           <main>{children}</main>
